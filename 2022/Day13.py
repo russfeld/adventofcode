@@ -27,7 +27,23 @@ def parse(string, start):
 
 
 def compare(left, right):
-  if isinstance(left[0], int) and isinstance(right[0], int)
+  if isinstance(left[0], int) and isinstance(right[0], int):
+    if left[0] == right[0]:
+      # deal with end of array
+      return compare(left[1:], right[1:])
+    else:
+      return left[0] < right[0]
+  if isinstance(left[0], int):
+    return compare([left[0]], right[0])
+  if isinstance(right[0], int):
+    return compare(left[0], [right[0]])
+  if len(left[0]) == len(right[0]):
+    if left[0] == right[0]:
+      # deal with end of array?
+      return compare(left[1:], right[1:])
+    else:
+      # deal with mismatched arrays
+
 
 
 with open("test13.txt") as file:
