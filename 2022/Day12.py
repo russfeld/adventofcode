@@ -11,7 +11,7 @@ def can_reach(char1, char2):
   return False
 
 
-with open("input12.txt") as file:
+with open("david12.txt") as file:
   graph = {}
   graph2 = {}
   matrix = [line.strip() for line in file]
@@ -50,25 +50,27 @@ with open("input12.txt") as file:
 
 # part 1
 # BFS
-# q = deque()
-# parents = {}
-# explored = [start]
-# q.append(start)
-# while len(q) > 0:
-#   curr = q.popleft()
-#   if curr == end:
-#     print("found")
-#     break
-#   for next in graph[curr]:
-#     if next not in explored:
-#       explored.append(next)
-#       parents[next] = curr
-#       q.append(next)
+q = deque()
+parents = {}
+explored = [start]
+q.append(start)
+while len(q) > 0:
+  curr = q.popleft()
+  if curr == end:
+    print("found")
+    break
+  for next in graph[curr]:
+    if next not in explored:
+      explored.append(next)
+      parents[next] = curr
+      q.append(next)
 
-# path = deque()
-# while curr != start:
-#   path.appendleft(parents[curr])
-#   curr = parents[curr]
+path = deque()
+while curr != start:
+  path.appendleft(parents[curr])
+  curr = parents[curr]
+print(len(path))
+
 
 # part 2
 # BFS

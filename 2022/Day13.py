@@ -1,3 +1,8 @@
+import functools
+
+def dprint(string):
+  pass
+
 def parse(string, start):
   if string[start] == "[":
     # print("open 1")
@@ -27,36 +32,69 @@ def parse(string, start):
 
 
 def compare(left, right):
-  if isinstance(left[0], int) and isinstance(right[0], int):
-    if left[0] == right[0]:
-      # deal with end of array
-      return compare(left[1:], right[1:])
+  dprint("Compare {} and {}".format(left, right))
+  if isinstance(left, int) and isinstance(right, int):
+    if left < right:
+      dprint("left before right")
+      return -1
+    elif left > right:
+      dprint("right before left")
+      return 1
     else:
-      return left[0] < right[0]
-  if isinstance(left[0], int):
-    return compare([left[0]], right[0])
-  if isinstance(right[0], int):
-    return compare(left[0], [right[0]])
-  if len(left[0]) == len(right[0]):
-    if left[0] == right[0]:
-      # deal with end of array?
-      return compare(left[1:], right[1:])
-    else:
-      # deal with mismatched arrays
+      dprint("equal")
+      return 0
+  if isinstance(left, int):
+    return compare([left], right)
+  if isinstance(right, int):
+    return compare(left, [right])
+  i = 0
+  while i < min(len(left), len(right)):
+    next = compare(left[i], right[i])
+    if next != 0:
+      return next
+    i += 1
+  if len(left) == len(right):
+    dprint("both same size")
+    return 0
+  if len(left) < len(right):
+    dprint("left shorter than right")
+    return -1
+  else:
+    dprint("right shorter than left")
+    return 1
 
 
-
-with open("test13.txt") as file:
+with open("input13.txt") as file:
+  count = 0
+  index = 1
+  packets = []
   for line in file:
     left, end = parse(line, 0)
     right, end = parse(file.readline(), 0)
     # discard
     discard = file.readline()
-    print(left)
-    print(right)
-    
-    count = 0
-    if compare(left, right):
-      count += 1
-    print(count)
+    dprint(left)
+    dprint(right)
+    packets.append(left)
+    packets.append(right)
+    if compare(left, right) > 0:
+      dprint("out of order")
+    else:
+      dprint("in order")
+      count += index
+    index += 1
+  print(count)
+
+  first, end = parse("[[2]]", 0)
+  second, end = parse("[[6]]", 0)
+  packets.append(first)
+  packets.append(second)
+
+  ordered = sorted(packets, key=functools.cmp_to_key(compare))
+
+  # for packet in ordered:
+  #   print(packet)
+
+  key = (ordered.index(first)+ 1) * (ordered.index(second) + 1)
+  print(key)
 
