@@ -10,7 +10,7 @@ rocks = [rock1, rock2, rock3, rock4, rock5]
 
 jets = deque()
 cave = [[1, 1, 1, 1, 1, 1, 1]]
-
+states = {}
 
 def is_empty_row(line):
   for item in line:
@@ -75,13 +75,14 @@ def down_rock(cave, rock, top, left):
   return top, True
 
 
-def drop_rock(cave, rock, jets, top, left):
+def drop_rock(cave, rock, jets, jet_index, top, left):
   # handle jet
   left = shift_rock(cave, rock, jets[0], top, left)
   jets.rotate(-1)
+  jet_index = (jet_index + 1) % len(jets)
   # handle drop
   top, stop = down_rock(cave, rock, top, left)
-  return cave, rock, jets, top, left, stop
+  return cave, rock, jets, jet_index, top, left, stop
 
 
 def pretty_print(cave):
@@ -103,25 +104,57 @@ def pretty_print_rock(cave, rock, top, left):
   remove_rock(cave, rock, top, left)
 
 
+def calculate_height(cave):
+  count = len(cave) - 1
+  while is_empty_row(cave[count]):
+    count -= 1
+  return count
+
+
+def top_to_int(cave, height):
+  output = 0
+  for i in range(height, height - 5, -1):
+    for j in range(0, 7):
+      output = (output << 1) + cave[i][j]
+  return output
+
+
 with open("input17.txt") as file:
   for line in file:
     jets.extend([x for x in line.strip()])
-for i in range(1000000000000):
+
+avg_value = 0
+# for i in range(2022):
+i = 0
+target = 1000000000000
+jet_index = 0
+looped = False
+while i < target:
   rock = rocks[i % 5]
   cave, top = extend_cave(cave, rock)
   left = 2
   # pretty_print_rock(cave, rock, top, left)
   while True:
-    cave, rock, jets, top, left, stop = drop_rock(cave, rock, jets, top, left)
+    cave, rock, jets, jet_index, top, left, stop = drop_rock(cave, rock, jets, jet_index, top, left)
     if stop:
       break
-  # pretty_print(cave)
-  if i % 1000000000 == 0:
-    print(".", end="")
-count = 0
-while not is_empty_row(cave[count]):
-  count += 1
-print(count - 1)
-  
+  height = calculate_height(cave)
+  top = top_to_int(cave, height)
+  state = (top, i % 5, jet_index)
+  if not looped and state in states:
+    looped = True
+    print("Loop found at {} : {} : {}".format(state, (height, i), states[state]))
+    height_diff = height - states[state][0] 
+    i_diff = i - states[state][1]
+    loops = (target - states[state][1]) // i_diff
+    remain = target - (states[state][1] + loops * i_diff)
+    add_height = (loops - 1) * height_diff
+    print("{} : {} : {} : {} : {} ".format(height_diff, i_diff, loops, remain, add_height))
+    i = target - remain
+  else:
+    states[state] = (height, i)
+  i += 1
 
+total_height = calculate_height(cave) + add_height
+print(total_height)
   
