@@ -1,17 +1,17 @@
-export async function two_a() : Promise<number> {
+export async function two_a(): Promise<number> {
   const file = Bun.file("inputs/two.txt");
 
-  var horiz: number = 0;
-  var vert: number = 0;
+  let horiz: number = 0;
+  let vert: number = 0;
 
   for (const line of (await file.text()).split("\n")) {
     const parts: string[] = line.split(" ");
-    var value: number = parseInt(parts[1]);
-    if (parts[0] == "forward"){
+    const value: number = parseInt(parts[1]);
+    if (parts[0] == "forward") {
       horiz += value;
-    }else if (parts[0] == "down"){
+    } else if (parts[0] == "down") {
       vert += value;
-    }else if (parts[0] == "up"){
+    } else if (parts[0] == "up") {
       vert -= value;
     }
   }
@@ -19,22 +19,22 @@ export async function two_a() : Promise<number> {
   return horiz * vert;
 }
 
-export async function two_b() : Promise<number> {
+export async function two_b(): Promise<number> {
   const file = Bun.file("inputs/two.txt");
 
-  var horiz: number = 0;
-  var vert: number = 0;
-  var aim: number = 0;
+  let horiz: number = 0;
+  let vert: number = 0;
+  let aim: number = 0;
 
   for (const line of (await file.text()).split("\n")) {
     const parts: string[] = line.split(" ");
-    var value: number = parseInt(parts[1]);
-    if (parts[0] == "forward"){
+    const value: number = parseInt(parts[1]);
+    if (parts[0] == "forward") {
       horiz += value;
       vert += aim * value;
-    }else if (parts[0] == "down"){
+    } else if (parts[0] == "down") {
       aim += value;
-    }else if (parts[0] == "up"){
+    } else if (parts[0] == "up") {
       aim -= value;
     }
   }
