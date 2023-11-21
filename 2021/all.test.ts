@@ -4,6 +4,7 @@ import { one_a, one_b } from "./src/one";
 import { two_a, two_b } from "./src/two";
 import { three_a, three_b } from "./src/three";
 import { four_a, four_b } from "./src/four";
+import { five_a, five_b } from "./src/five";
 
 test("one", async () => {
   expect(await one_a()).toBe(1681);
@@ -23,4 +24,9 @@ test("three", async () => {
 test("four", async () => {
   expect(await four_a()).toBe(41503);
   expect(await four_b()).toBe(3178);
+});
+
+test("five", async () => {
+  expect(await five_a()).toBe(5373);
+  expect(await five_b()).toBe(21514);
 });
