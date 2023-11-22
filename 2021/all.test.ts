@@ -9,6 +9,7 @@ import { six_a, six_b } from "./src/six";
 import { seven_a, seven_b } from "./src/seven";
 import { eight_a, eight_b } from "./src/eight";
 import { nine_a, nine_b } from "./src/nine";
+import { ten_a, ten_b } from "./src/ten";
 
 test("one", async () => {
   expect(await one_a()).toBe(1681);
@@ -53,4 +54,9 @@ test("eight", async () => {
 test("nine", async () => {
   expect(await nine_a()).toBe(496);
   expect(await nine_b()).toBe(902880);
+});
+
+test("ten", async () => {
+  expect(await ten_a()).toBe(271245);
+  expect(await ten_b()).toBe(1685293086);
 });
