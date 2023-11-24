@@ -14,6 +14,7 @@ import { eleven_a, eleven_b } from "./src/eleven";
 import { twelve_a, twelve_b } from "./src/twelve";
 import { thirteen_a, thirteen_b } from "./src/thirteen";
 import { fourteen_a, fourteen_b } from "./src/fourteen";
+import { fifteen_a, fifteen_b } from "./src/fifteen";
 
 test("one", async () => {
   expect(await one_a()).toBe(1681);
@@ -83,4 +84,9 @@ test("thirteen", async () => {
 test("fourteen", async () => {
   expect(await fourteen_a()).toBe(3009);
   expect(await fourteen_b()).toBe(3459822539451);
+});
+
+test("fifteen", async () => {
+  expect(await fifteen_a()).toBe(503);
+  expect(await fifteen_b()).toBe(2853);
 });
