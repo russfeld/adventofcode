@@ -11,5 +11,5 @@ def one_b() -> int:
   return 0
 
 if __name__ == "__main__":
-  print(one_a)
-  print(one_b)
+  print(one_a())
+  print(one_b())
