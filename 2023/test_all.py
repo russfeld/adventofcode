@@ -4,6 +4,7 @@ sys.path.append("src")
 
 import a_one as one
 import b_two as two
+import c_three as three
 
 
 def test_one():
@@ -14,3 +15,8 @@ def test_one():
 def test_two():
     assert two.two_a() == 2447
     assert two.two_b() == 56322
+
+
+def test_three():
+    assert three.three_a() == 533784
+    assert three.three_b() == 78826761
