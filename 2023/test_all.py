@@ -7,6 +7,7 @@ import b_two as two
 import c_three as three
 import d_four as four
 import e_five as five
+import f_six as six
 
 
 def test_one():
@@ -32,3 +33,8 @@ def test_four():
 def test_five():
     assert five.five_a() == 218513636
     assert five.five_b() == 81956384
+
+
+def test_six():
+    assert six.six_a() == 316800
+    assert six.six_b() == 45647654
