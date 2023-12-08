@@ -9,6 +9,7 @@ import d_four as four
 import e_five as five
 import f_six as six
 import g_seven as seven
+import h_eight as eight
 
 
 def test_one():
@@ -44,3 +45,8 @@ def test_six():
 def test_seven():
     assert seven.seven_a() == 248601919
     assert seven.seven_b() == 248781813
+
+
+def test_eight():
+    assert eight.eight_a() == 14893
+    assert eight.eight_b() == 10241191004509
