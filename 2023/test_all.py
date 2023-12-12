@@ -11,6 +11,7 @@ import f_six as six
 import g_seven as seven
 import h_eight as eight
 import i_nine as nine
+import j_ten as ten
 
 
 def test_one():
@@ -56,3 +57,8 @@ def test_eight():
 def test_nine():
     assert nine.nine_a() == 2005352194
     assert nine.nine_b() == 1077
+
+
+def test_ten():
+    assert ten.ten_a() == 6786
+    assert ten.ten_b() == 495
