@@ -13,6 +13,7 @@ import h_eight as eight
 import i_nine as nine
 import j_ten as ten
 import k_eleven as eleven
+import l_twelve as twelve
 
 
 def test_one():
@@ -68,3 +69,8 @@ def test_ten():
 def test_eleven():
     assert eleven.eleven_a() == 9686930
     assert eleven.eleven_b() == 630728425490
+
+
+def test_twelve():
+    assert twelve.twelve_a() == 6827
+    assert twelve.twelve_c() == 1537505634471
