@@ -14,6 +14,7 @@ import i_nine as nine
 import j_ten as ten
 import k_eleven as eleven
 import l_twelve as twelve
+import m_thirteen as thirteen
 
 
 def test_one():
@@ -74,3 +75,8 @@ def test_eleven():
 def test_twelve():
     assert twelve.twelve_a() == 6827
     assert twelve.twelve_c() == 1537505634471
+
+
+def test_thirteen():
+    assert thirteen.thirteen_a() == 27505
+    assert thirteen.thirteen_b() == 22906
