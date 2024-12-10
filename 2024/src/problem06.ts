@@ -15,7 +15,10 @@ export function problem06a(inputfile: string): number {
   }
   let dir: [number, number] = [-1, 0];
   let count = 1;
-  while(guard[0] + dir[0] >= 0 && guard[0] + dir[0] < m && guard[1] + dir[1] >= 0 && guard[1] + dir[1] < n) {
+  while (
+    guard[0] + dir[0] >= 0 && guard[0] + dir[0] < m && guard[1] + dir[1] >= 0 &&
+    guard[1] + dir[1] < n
+  ) {
     if (map[guard[0] + dir[0]][guard[1] + dir[1]] === "#") {
       if (dir[0] === -1 && dir[1] === 0) {
         dir = [0, 1];
@@ -46,15 +49,19 @@ export function problem06b(inputfile: string): number {
   for (let i = 0; i < m; i++) {
     for (let j = 0; j < n; j++) {
       if (map[i][j] === "^") {
+        map[i][j] = "X";
         guard = [i, j];
         break;
       }
     }
   }
+  const initial: [number, number] = [guard[0], guard[1]];
   let dir: [number, number] = [-1, 0];
-  const spots: [[number, number]] = [[-1, -1]];
-  while(guard[0] + dir[0] >= 0 && guard[0] + dir[0] < m && guard[1] + dir[1] >= 0 && guard[1] + dir[1] < n) {
-    while (map[guard[0] + dir[0]][guard[1] + dir[1]] === "#") {
+  while (
+    guard[0] + dir[0] >= 0 && guard[0] + dir[0] < m && guard[1] + dir[1] >= 0 &&
+    guard[1] + dir[1] < n
+  ) {
+    if (map[guard[0] + dir[0]][guard[1] + dir[1]] === "#") {
       if (dir[0] === -1 && dir[1] === 0) {
         dir = [0, 1];
       } else if (dir[0] === 0 && dir[1] === 1) {
@@ -65,36 +72,42 @@ export function problem06b(inputfile: string): number {
         dir = [-1, 0];
       }
     }
-    if(!spots.some((x) => x[0] === guard[0] + dir[0] && x[1] === guard[1] + dir[1])) {
-      if(check_loop(map, guard, dir)) {
-        spots.push([guard[0] + dir[0], guard[1] + dir[1]]);
-      }
-    }
     guard = [guard[0] + dir[0], guard[1] + dir[1]];
     if (map[guard[0]][guard[1]] === ".") {
-      if (dir[0] === -1 && dir[1] === 0) {
-        map[guard[0]][guard[1]] = "^";
-      } else if (dir[0] === 0 && dir[1] === 1) {
-        map[guard[0]][guard[1]] = ">";
-      } else if (dir[0] === 1 && dir[1] === 0) {
-        map[guard[0]][guard[1]] = "v";
-      } else if (dir[0] === 0 && dir[1] === -1) {
-        map[guard[0]][guard[1]] = "<";
+      map[guard[0]][guard[1]] = "X";
+    }
+  }
+  let count: number = 0;
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      if (map[i][j] === "X") {
+        if (check_loop(map, [i, j], initial)) {
+          count++;
+        }
       }
     }
   }
-  return spots.length - 1;
+  return count;
 }
 
-function check_loop (map: string[][], guard: [number, number], dir: [number, number]): boolean {
+function check_loop(
+  map: string[][],
+  obstacle: [number, number],
+  guard: [number, number],
+): boolean {
   const m = map.length;
   const n = map[0].length;
   // deep copy the array
   map = map.map((x) => x.slice());
-  map[guard[0] + dir[0]][guard[1] + dir[1]] = "#";
+  map[obstacle[0]][obstacle[1]] = "#";
+  let dir: [number, number] = [-1, 0];
   // console.log(map.map((x) => x.join("")).join("\n"));
-  while(guard[0] + dir[0] >= 0 && guard[0] + dir[0] < m && guard[1] + dir[1] >= 0 && guard[1] + dir[1] < n) {
-    while (map[guard[0] + dir[0]][guard[1] + dir[1]] === "#") {
+  let steps: number = 0;
+  while (
+    guard[0] + dir[0] >= 0 && guard[0] + dir[0] < m && guard[1] + dir[1] >= 0 &&
+    guard[1] + dir[1] < n
+  ) {
+    if (map[guard[0] + dir[0]][guard[1] + dir[1]] === "#") {
       if (dir[0] === -1 && dir[1] === 0) {
         dir = [0, 1];
       } else if (dir[0] === 0 && dir[1] === 1) {
@@ -104,30 +117,12 @@ function check_loop (map: string[][], guard: [number, number], dir: [number, num
       } else if (dir[0] === 0 && dir[1] === -1) {
         dir = [-1, 0];
       }
+      continue;
     }
     guard = [guard[0] + dir[0], guard[1] + dir[1]];
-    if (dir[0] == -1 && dir[1] == 0 && map[guard[0]][guard[1]] === "^") {
+    steps++;
+    if (steps > m * n) {
       return true;
-    }
-    if (dir[0] == 0 && dir[1] == 1 && map[guard[0]][guard[1]] === ">") {
-      return true;
-    }
-    if (dir[0] == 1 && dir[1] == 0 && map[guard[0]][guard[1]] === "v") {
-      return true;
-    }
-    if (dir[0] == 0 && dir[1] == -1 && map[guard[0]][guard[1]] === "<") {
-      return true;
-    }
-    if (map[guard[0]][guard[1]] === ".") {
-      if (dir[0] === -1 && dir[1] === 0) {
-        map[guard[0]][guard[1]] = "^";
-      } else if (dir[0] === 0 && dir[1] === 1) {
-        map[guard[0]][guard[1]] = ">";
-      } else if (dir[0] === 1 && dir[1] === 0) {
-        map[guard[0]][guard[1]] = "v";
-      } else if (dir[0] === 0 && dir[1] === -1) {
-        map[guard[0]][guard[1]] = "<";
-      }
     }
   }
   return false;
