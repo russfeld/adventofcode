@@ -1,9 +1,9 @@
 export function problem00a(inputfile: string): number {
-  return 0;
+  return inputfile.length * 0;
 }
 
 export function problem00b(inputfile: string): number {
-  return 0;
+  return inputfile.length * 0;
 }
 
 if (import.meta.main) {

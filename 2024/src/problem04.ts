@@ -21,9 +21,15 @@ export function problem04a(inputfile: string): number {
       }
     }
   }
-  const all = matrix1.map((x) => x.join("")).concat(matrix2.map((x) => x.join("")), matrix3.map((x) => x.join("")), matrix4.map((x) => x.join("")));
+  const all = matrix1.map((x) => x.join("")).concat(
+    matrix2.map((x) => x.join("")),
+    matrix3.map((x) => x.join("")),
+    matrix4.map((x) => x.join("")),
+  );
   const regex = /(?=(XMAS|SAMX))/gi;
-  const sum = all.map((x) => x.match(regex) === null ? 0 : x.match(regex)!.length).reduce((a, b) => a + b);
+  const sum = all.map((x) =>
+    x.match(regex) === null ? 0 : x.match(regex)!.length
+  ).reduce((a, b) => a + b);
   return sum;
 }
 
@@ -35,11 +41,14 @@ export function problem04b(inputfile: string): number {
   for (let i = 1; i < matrix1.length - 1; i++) {
     for (let j = 1; j < matrix1[i].length - 1; j++) {
       if (matrix1[i][j] === "A") {
-        const one = matrix1[i-1][j-1]
-        const two = matrix1[i-1][j+1]
-        const three = matrix1[i+1][j-1]
-        const four = matrix1[i+1][j+1]
-        if (((one == "S" && four =="M") || (one == "M" && four =="S")) && ((two == "S" && three =="M") || (two == "M" && three =="S"))) {
+        const one = matrix1[i - 1][j - 1];
+        const two = matrix1[i - 1][j + 1];
+        const three = matrix1[i + 1][j - 1];
+        const four = matrix1[i + 1][j + 1];
+        if (
+          ((one == "S" && four == "M") || (one == "M" && four == "S")) &&
+          ((two == "S" && three == "M") || (two == "M" && three == "S"))
+        ) {
           count++;
         }
       }
