@@ -35,25 +35,19 @@ export function problem08a(inputfile: string): number {
           antenna.nodes[j][1] - diff[1],
         ];
         if (
-          !antinodes.some((antinode) =>
-            antinode[0] === an1[0] && antinode[1] === an1[1]
-          )
+          !antinodes.some((antinode) => antinode[0] === an1[0] && antinode[1] === an1[1])
         ) {
           antinodes.push(an1);
         }
         if (
-          !antinodes.some((antinode) =>
-            antinode[0] === an2[0] && antinode[1] === an2[1]
-          )
+          !antinodes.some((antinode) => antinode[0] === an2[0] && antinode[1] === an2[1])
         ) {
           antinodes.push(an2);
         }
       }
     }
   });
-  const filtered = antinodes.filter((antinode) =>
-    antinode[0] >= 0 && antinode[0] < m && antinode[1] >= 0 && antinode[1] < n
-  );
+  const filtered = antinodes.filter((antinode) => antinode[0] >= 0 && antinode[0] < m && antinode[1] >= 0 && antinode[1] < n);
   return filtered.length;
 }
 
@@ -109,9 +103,7 @@ export function problem08b(inputfile: string): number {
             antenna.nodes[i][1] + diff[1] * multiplier,
           ];
           if (
-            !antinodes.some((antinode) =>
-              antinode[0] === an1[0] && antinode[1] === an1[1]
-            )
+            !antinodes.some((antinode) => antinode[0] === an1[0] && antinode[1] === an1[1])
           ) {
             antinodes.push(an1);
           }
@@ -129,9 +121,7 @@ export function problem08b(inputfile: string): number {
             antenna.nodes[i][1] - diff[1] * multiplier,
           ];
           if (
-            !antinodes.some((antinode) =>
-              antinode[0] === an2[0] && antinode[1] === an2[1]
-            )
+            !antinodes.some((antinode) => antinode[0] === an2[0] && antinode[1] === an2[1])
           ) {
             antinodes.push(an2);
           }
@@ -140,9 +130,7 @@ export function problem08b(inputfile: string): number {
       }
     }
   });
-  const filtered = antinodes.filter((antinode) =>
-    antinode[0] >= 0 && antinode[0] < m && antinode[1] >= 0 && antinode[1] < n
-  );
+  const filtered = antinodes.filter((antinode) => antinode[0] >= 0 && antinode[0] < m && antinode[1] >= 0 && antinode[1] < n);
   return filtered.length;
 }
 

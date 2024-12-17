@@ -1,8 +1,6 @@
 export function problem12a(inputfile: string): number {
   const input = Deno.readTextFileSync(inputfile);
-  const matrix: string[][] = input.trim().split("\n").map((line) =>
-    line.trim().split("")
-  );
+  const matrix: string[][] = input.trim().split("\n").map((line) => line.trim().split(""));
   let sum: number = 0;
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
@@ -102,9 +100,7 @@ function walk(
 
 export function problem12b(inputfile: string): number {
   const input = Deno.readTextFileSync(inputfile);
-  const matrix: string[][] = input.trim().split("\n").map((line) =>
-    line.trim().split("")
-  );
+  const matrix: string[][] = input.trim().split("\n").map((line) => line.trim().split(""));
   let sum: number = 0;
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {

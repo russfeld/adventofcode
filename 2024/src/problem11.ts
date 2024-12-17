@@ -1,8 +1,6 @@
 export function problem11a(inputfile: string): number {
   const input = Deno.readTextFileSync(inputfile);
-  const array: number[] = input.trim().split(" ").map((x) =>
-    Number.parseInt(x)
-  );
+  const array: number[] = input.trim().split(" ").map((x) => Number.parseInt(x));
   let dict: Map<number, number> = new Map();
   for (let i = 0; i < array.length; i++) {
     dict.set(array[i], 1);
@@ -42,9 +40,7 @@ function update(x: number): number[] {
 
 export function problem11b(inputfile: string): number {
   const input = Deno.readTextFileSync(inputfile);
-  const array: number[] = input.trim().split(" ").map((x) =>
-    Number.parseInt(x)
-  );
+  const array: number[] = input.trim().split(" ").map((x) => Number.parseInt(x));
   let dict: Map<number, number> = new Map();
   for (let i = 0; i < array.length; i++) {
     dict.set(array[i], 1);

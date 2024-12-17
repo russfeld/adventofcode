@@ -27,9 +27,7 @@ export function problem04a(inputfile: string): number {
     matrix4.map((x) => x.join("")),
   );
   const regex = /(?=(XMAS|SAMX))/gi;
-  const sum = all.map((x) =>
-    x.match(regex) === null ? 0 : x.match(regex)!.length
-  ).reduce((a, b) => a + b);
+  const sum = all.map((x) => x.match(regex) === null ? 0 : x.match(regex)!.length).reduce((a, b) => a + b);
   return sum;
 }
 

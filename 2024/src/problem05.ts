@@ -60,9 +60,7 @@ export function problem05b(inputfile: string): number {
     const pages = line.split(",").map((x) => Number.parseInt(x));
     const filtered: { [id: number]: number[] } = {};
     for (let i = 0; i < pages.length; i++) {
-      filtered[pages[i]] = Object.hasOwnProperty.call(rules, pages[i])
-        ? rules[pages[i]].filter((x) => pages.includes(x))
-        : [];
+      filtered[pages[i]] = Object.hasOwnProperty.call(rules, pages[i]) ? rules[pages[i]].filter((x) => pages.includes(x)) : [];
     }
     //console.log(filtered);
     pages.sort((a, b) => filtered[b].length - filtered[a].length);

@@ -1,8 +1,6 @@
 export function problem10a(inputfile: string): number {
   const input = Deno.readTextFileSync(inputfile);
-  const matrix: number[][] = input.split("\n").map((line) =>
-    line.split("").map((x) => Number.parseInt(x))
-  );
+  const matrix: number[][] = input.split("\n").map((line) => line.split("").map((x) => Number.parseInt(x)));
   let sum: number = 0;
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
@@ -41,9 +39,7 @@ function trailwalk(
 
 export function problem10b(inputfile: string): number {
   const input = Deno.readTextFileSync(inputfile);
-  const matrix: number[][] = input.split("\n").map((line) =>
-    line.split("").map((x) => Number.parseInt(x))
-  );
+  const matrix: number[][] = input.split("\n").map((line) => line.split("").map((x) => Number.parseInt(x)));
   let sum: number = 0;
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
