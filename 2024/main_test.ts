@@ -13,6 +13,7 @@ import { problem11a, problem11b } from "./src/problem11.ts";
 import { problem12a, problem12b } from "./src/problem12.ts";
 import { problem13a, problem13b } from "./src/problem13.ts";
 import { problem14a, problem14b } from "./src/problem14.ts";
+import { problem15a, problem15b } from "./src/problem15.ts";
 
 Deno.test(function problem01Test() {
   const output = Deno.readTextFileSync(`outputs/01.txt`).split("\n").map((x) => Number.parseInt(x));
@@ -124,4 +125,12 @@ Deno.test(function problem14Test() {
   assertEquals(problem14a(`inputs/14.txt`), output[1]);
   assertEquals(problem14b(`inputs/14e.txt`), output[2]);
   assertEquals(problem14b(`inputs/14.txt`), output[3]);
+});
+
+Deno.test(function problem15Test() {
+  const output = Deno.readTextFileSync(`outputs/15.txt`).split("\n").map((x) => Number.parseInt(x));
+  assertEquals(problem15a(`inputs/15e.txt`), output[0]);
+  assertEquals(problem15a(`inputs/15.txt`), output[1]);
+  assertEquals(problem15b(`inputs/15e.txt`), output[2]);
+  assertEquals(problem15b(`inputs/15.txt`), output[3]);
 });
