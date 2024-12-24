@@ -3,6 +3,8 @@
   "specifiers": {
     "jsr:@std/assert@1": "1.0.9",
     "jsr:@std/internal@^1.0.5": "1.0.5",
+    "npm:@datastructures-js/graph@^5.3.0": "5.3.0",
+    "npm:@datastructures-js/priority-queue@^6.3.1": "6.3.1",
     "npm:mathjs@^14.0.1": "14.0.1"
   },
   "jsr": {
@@ -22,6 +24,24 @@
       "dependencies": [
         "regenerator-runtime"
       ]
+    },
+    "@datastructures-js/graph@5.3.0": {
+      "integrity": "sha512-Owbn40ha2W22i6yGSTmOb7ppL6RZKCeFf9tVKqFVXClb5rWQgscHDIyuHXFcNkdlsrq3O0E7zvJ45O60/8m/mg==",
+      "dependencies": [
+        "@datastructures-js/queue"
+      ]
+    },
+    "@datastructures-js/heap@4.3.3": {
+      "integrity": "sha512-UcUu/DLh/aM4W3C8zZfwxxm6/6FIZUlm3mcAXuNOCa6Aj4iizNvNXQyb8DjZQH2jKSQbMRyNlngP6TPimuGjpQ=="
+    },
+    "@datastructures-js/priority-queue@6.3.1": {
+      "integrity": "sha512-eoxkWql/j0VJ0UFMFTpnyJz4KbEEVQ6aZ/JuJUgenu0Im4tYKylAycNGsYCHGXiVNEd7OKGVwfx1Ac3oYkuu7A==",
+      "dependencies": [
+        "@datastructures-js/heap"
+      ]
+    },
+    "@datastructures-js/queue@3.1.4": {
+      "integrity": "sha512-8QqkdAJQDDd25OBX28lKj7HXD+Cxs6Ee0ogJkZUjD5R1fAvRAWsrCeKop0szqANYjMwdQQd75vyc3Cm8qNJH+Q=="
     },
     "complex.js@2.4.2": {
       "integrity": "sha512-qtx7HRhPGSCBtGiST4/WGHuW+zeaND/6Ld+db6PbrulIB1i2Ev/2UPiqcmpQNPSyfBKraC0EOvOKCB5dGZKt3g=="
@@ -68,6 +88,8 @@
   "workspace": {
     "dependencies": [
       "jsr:@std/assert@1",
+      "npm:@datastructures-js/graph@^5.3.0",
+      "npm:@datastructures-js/priority-queue@^6.3.1",
       "npm:mathjs@^14.0.1"
     ]
   }

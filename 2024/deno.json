@@ -3,6 +3,8 @@
     "dev": "deno run --watch main.ts"
   },
   "imports": {
+    "@datastructures-js/graph": "npm:@datastructures-js/graph@^5.3.0",
+    "@datastructures-js/priority-queue": "npm:@datastructures-js/priority-queue@^6.3.1",
     "@std/assert": "jsr:@std/assert@1",
     "mathjs": "npm:mathjs@^14.0.1"
   },
