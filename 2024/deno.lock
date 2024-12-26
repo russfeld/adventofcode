@@ -5,6 +5,7 @@
     "jsr:@std/internal@^1.0.5": "1.0.5",
     "npm:@datastructures-js/graph@^5.3.0": "5.3.0",
     "npm:@datastructures-js/priority-queue@^6.3.1": "6.3.1",
+    "npm:@datastructures-js/trie@^4.2.2": "4.2.2",
     "npm:mathjs@^14.0.1": "14.0.1"
   },
   "jsr": {
@@ -42,6 +43,9 @@
     },
     "@datastructures-js/queue@3.1.4": {
       "integrity": "sha512-8QqkdAJQDDd25OBX28lKj7HXD+Cxs6Ee0ogJkZUjD5R1fAvRAWsrCeKop0szqANYjMwdQQd75vyc3Cm8qNJH+Q=="
+    },
+    "@datastructures-js/trie@4.2.2": {
+      "integrity": "sha512-wZFXic9OLc+BgtnUYr0EIaAZLaPaNt0r1zjf2xJ5JhGwuK0w2vwlOMMj9RHgIeOY+UM0J76CcrmN/wn2LlEYkA=="
     },
     "complex.js@2.4.2": {
       "integrity": "sha512-qtx7HRhPGSCBtGiST4/WGHuW+zeaND/6Ld+db6PbrulIB1i2Ev/2UPiqcmpQNPSyfBKraC0EOvOKCB5dGZKt3g=="
@@ -90,6 +94,7 @@
       "jsr:@std/assert@1",
       "npm:@datastructures-js/graph@^5.3.0",
       "npm:@datastructures-js/priority-queue@^6.3.1",
+      "npm:@datastructures-js/trie@^4.2.2",
       "npm:mathjs@^14.0.1"
     ]
   }
