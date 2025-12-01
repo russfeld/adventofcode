@@ -1,0 +1,15 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
+  "imports": {
+    "@datastructures-js/graph": "npm:@datastructures-js/graph@^5.3.0",
+    "@datastructures-js/priority-queue": "npm:@datastructures-js/priority-queue@^6.3.1",
+    "@datastructures-js/trie": "npm:@datastructures-js/trie@^4.2.2",
+    "@std/assert": "jsr:@std/assert@1",
+    "mathjs": "npm:mathjs@^14.0.1"
+  },
+  "fmt": {
+    "lineWidth": 140
+  }
+}
