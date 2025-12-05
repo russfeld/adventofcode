@@ -46,3 +46,15 @@ Deno.test(function problem04Test() {
   assertEquals(problem04b(`inputs/04e.txt`), output[2]);
   assertEquals(problem04b(`inputs/04.txt`), output[3]);
 });
+
+import { problem05a, problem05b } from "./src/problem05.ts";
+
+Deno.test(function problem05Test() {
+  const output = Deno.readTextFileSync(`outputs/05.txt`).split("\n").map((x) =>
+    Number.parseInt(x)
+  );
+  assertEquals(problem05a(`inputs/05e.txt`), output[0]);
+  assertEquals(problem05a(`inputs/05.txt`), output[1]);
+  assertEquals(problem05b(`inputs/05e.txt`), output[2]);
+  assertEquals(problem05b(`inputs/05.txt`), output[3]);
+});
