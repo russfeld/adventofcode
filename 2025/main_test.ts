@@ -70,3 +70,15 @@ Deno.test(function problem06Test() {
   assertEquals(problem06b(`inputs/06e.txt`), output[2]);
   assertEquals(problem06b(`inputs/06.txt`), output[3]);
 });
+
+import { problem07a, problem07b } from "./src/problem07.ts";
+
+Deno.test(function problem07Test() {
+  const output = Deno.readTextFileSync(`outputs/07.txt`).split("\n").map((x) =>
+    Number.parseInt(x)
+  );
+  assertEquals(problem07a(`inputs/07e.txt`), output[0]);
+  assertEquals(problem07a(`inputs/07.txt`), output[1]);
+  assertEquals(problem07b(`inputs/07e.txt`), output[2]);
+  assertEquals(problem07b(`inputs/07.txt`), output[3]);
+});
