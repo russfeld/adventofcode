@@ -2,7 +2,8 @@
   "version": "5",
   "specifiers": {
     "jsr:@std/assert@1": "1.0.16",
-    "jsr:@std/internal@^1.0.12": "1.0.12"
+    "jsr:@std/internal@^1.0.12": "1.0.12",
+    "npm:heap-js@^2.7.1": "2.7.1"
   },
   "jsr": {
     "@std/assert@1.0.16": {
@@ -15,9 +16,15 @@
       "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
     }
   },
+  "npm": {
+    "heap-js@2.7.1": {
+      "integrity": "sha512-EQfezRg0NCZGNlhlDR3Evrw1FVL2G3LhU7EgPoxufQKruNBSYA8MiRPHeWbU+36o+Fhel0wMwM+sLEiBAlNLJA=="
+    }
+  },
   "workspace": {
     "dependencies": [
-      "jsr:@std/assert@1"
+      "jsr:@std/assert@1",
+      "npm:heap-js@^2.7.1"
     ]
   }
 }

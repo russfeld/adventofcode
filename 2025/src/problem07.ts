@@ -30,20 +30,20 @@ export function problem07b(inputfile: string): number {
       const loc = line[0];
       const count = line[1];
       if (input[i].charAt(loc) == "^") {
-        const val = new_lines.get(loc - 1)
+        const val = new_lines.get(loc - 1);
         if (val !== undefined) {
           new_lines.set(loc - 1, val + count);
         } else {
           new_lines.set(loc - 1, count);
         }
-        const val2 = new_lines.get(loc + 1)
+        const val2 = new_lines.get(loc + 1);
         if (val2 !== undefined) {
           new_lines.set(loc + 1, val2 + count);
         } else {
           new_lines.set(loc + 1, count);
         }
       } else {
-        const val3 = new_lines.get(loc)
+        const val3 = new_lines.get(loc);
         if (val3 !== undefined) {
           new_lines.set(loc, val3 + count);
         } else {
