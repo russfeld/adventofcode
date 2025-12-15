@@ -3,7 +3,8 @@
   "specifiers": {
     "jsr:@std/assert@1": "1.0.16",
     "jsr:@std/internal@^1.0.12": "1.0.12",
-    "npm:heap-js@^2.7.1": "2.7.1"
+    "npm:heap-js@^2.7.1": "2.7.1",
+    "npm:yalps@~0.6.3": "0.6.3"
   },
   "jsr": {
     "@std/assert@1.0.16": {
@@ -19,12 +20,22 @@
   "npm": {
     "heap-js@2.7.1": {
       "integrity": "sha512-EQfezRg0NCZGNlhlDR3Evrw1FVL2G3LhU7EgPoxufQKruNBSYA8MiRPHeWbU+36o+Fhel0wMwM+sLEiBAlNLJA=="
+    },
+    "heap@0.2.7": {
+      "integrity": "sha512-2bsegYkkHO+h/9MGbn6KWcE45cHZgPANo5LXF7EvWdT0yT2EguSVO1nDgU5c8+ZOPwp2vMNa7YFsJhVcDR9Sdg=="
+    },
+    "yalps@0.6.3": {
+      "integrity": "sha512-XS1Sb3uejyNMu/Bl+3ZdI4VZGJKT6JSoSDYcLFlapOUy0wJPN9h+XDXAY8xeFk0bQFdEMIOGNAN2/jht4XSJKA==",
+      "dependencies": [
+        "heap"
+      ]
     }
   },
   "workspace": {
     "dependencies": [
       "jsr:@std/assert@1",
-      "npm:heap-js@^2.7.1"
+      "npm:heap-js@^2.7.1",
+      "npm:yalps@~0.6.3"
     ]
   }
 }

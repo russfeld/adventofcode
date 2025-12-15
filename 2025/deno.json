@@ -4,6 +4,7 @@
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@1",
-    "heap-js": "npm:heap-js@^2.7.1"
+    "heap-js": "npm:heap-js@^2.7.1",
+    "yalps": "npm:yalps@^0.6.3"
   }
 }

@@ -62,7 +62,7 @@ export function problem09b(inputfile: string): number {
         noCrosses(locs, point4, point1, point2)
       ) {
         // winner winner chicken dinner
-        if (inputfile == "inputs/09.txt"){
+        if (inputfile == "inputs/09.txt") {
           _makeSVG(locs, [point1, point2, point3, point4]);
         }
         return rect.len;
